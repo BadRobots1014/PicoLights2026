@@ -1,12 +1,12 @@
 import board
-from rainbowio import colorwheel
 import neopixel
+import pulseio
 
 pixel_pin = board.GP5
 num_pixels = 3
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=1, auto_write=False)
-pulse = pulseio.PulseIn(board.DP3)
+pulse = pulseio.PulseIn(board.DP3, 5)
 
 RED = (255, 0, 0)
 YELLOW = (255, 150, 0)
@@ -18,7 +18,7 @@ PURPLE = (180, 0, 255)
 while True:
     if len(pulse) == 0:
         continue
-    display = round(pulse[0]/20)
+    display = round(pulse[-1]/20)
     match display:
         case 0:
             pixels.fill(RED)
