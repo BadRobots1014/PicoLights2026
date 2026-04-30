@@ -55,24 +55,22 @@ while True:
     # Round length incase it is not perfect
     display = round(pulse[-1] / 20)
     if display == 1:
-        color_chase(GREEN, count % num_pixels)
+        pixles.fill(BLUE)
     elif display == 2:
-        color_chase(BLUE, count % num_pixels)
+        color_flash(BLUE, count % num_pixels)
     elif display == 3:
-        pixels.fill(GREEN)
+        pixels.fill(RED)
     elif display == 4:
-        pixels.fill(BLUE)
+        color_flash(RED, count % num_pixels)
     elif display == 5:
-        color_flash(PURPLE, count)
+        pixles.fill(YELLOW)
     elif display == 6:
-        pixels.fill(PURPLE)
+        color_flash(YELLOW, count % num_pixels)
     elif display == 7:
-        color_flash(WHITE, count)
+        pixles.fill(WHITE)
     elif display == 8:
-        color_flash(YELLOW, count)
+        color_flash(WHITE, count)
     elif display == 9:
-        pixels.fill(YELLOW)
-    elif display == 10:
         rainbow_cycle(count)
     pixels.show()
 
